@@ -2,7 +2,7 @@
 I chose to analyze the “Medical Cost Personal Datasets” which forecasts the insurance charged depending on
 factors such as age, sex, BMI, children, smoking, and region. 
 
-<img src="InsuranceDashboard.png">
+<img src="Code/img/InsuranceDashboard.png">
 
 I began cleaning the data by first summarizing the data to determine the data types of the variables and I changed a couple of variables to a factor data type (factor
 variables are categorical variables as they only contain a specific set of values).
@@ -14,14 +14,14 @@ the age variable, I combined it with the sex variable to see how the charges var
 who are not. </li>
 </ul>
 
-<img src="figure 3_5.png">
+<img src="Code/img/figure 3_5.png">
 
 <ul>
   <li> The charges for the subjects who smoke compared to those who do not was significantly higher especially for men as they have a higher median charge as seen in Figure 9.</li>
 </li> I couldn’t determine much from the plot of charges (Figure 10) depending on the region from where the subjects were from. Hence I used statistical tests to determine if there are any statistical differences between the means of three or more groups (ANOVA and Tukey HSD test). I concluded that the charges do not vary significantly over the regional distribution. Southeast is charged the highest.</li>
 </ul>
 
-<img src="figures 8_9.png">
+<img src="Code/img/figures 8_9.png">
 
 <ul>
    <li> I chose to exclude the children variable as it did not affect the medical insurance charges. It did raise questions such as why are the charges low for 5 children but high for 3 since practically speaking a household with 5 kids should be charged more. Hence this variable- “children” doesn't affect this data set as the number of children and the amount charged doesn't co-relate the way I hypothesized and hence this could be a future analysis that can be conducted.</li>
