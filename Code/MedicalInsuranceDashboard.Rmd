@@ -1,0 +1,85 @@
+---
+title: "Medical Insurance Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+medicalInsurance <- read.csv("/Users/malaika/Desktop/DS Projects/python-portfolio-project-starter-files/Jupyter notebook/insurance.csv")
+medicalInsurance$sex <- as.factor(medicalInsurance$sex)
+medicalInsurance$children <- as.factor(medicalInsurance$children)
+medicalInsurance$smoker <- as.factor(medicalInsurance$smoker)
+medicalInsurance$region <- as.factor(medicalInsurance$region)
+```
+
+Column 1 {data-width=350}
+-----------------------------------------------------------------------
+### From the graph we can see that the number of male subjects is slight more than the females. 
+
+```{r}
+ggplot(data=medicalInsurance, aes(x=age,fill = sex)) + 
+  ylab("frequency")+
+  geom_bar() + 
+  facet_wrap(~sex)+
+  ggtitle("Frequency of age compared to sex")+
+  labs(caption = "Figure 1")
+```
+
+### Now that we found the distribution of age and sex in the dataset we can see how it affects the medical insurance charges.
+
+```{r}
+ggplot(data=medicalInsurance, aes(x=age,y=charges,fill=sex))+
+  facet_wrap(~sex) +
+  xlab("age")+
+  ylab("charges")+
+  geom_violin() + 
+  ggtitle("Charges vary depending on age and sex") +
+  labs(caption = "Figure 2")
+```   
+    
+### To accurately find how the charges differ I'm using a t-test that will determine if there is a statistical difference between the means of two groups:
+
+```{r}
+t.test(medicalInsurance$age,medicalInsurance$charges)
+```
+Column 2{data-width=350}
+-----------------------------------------------------------------------
+
+### Determining how the charges would vary depending on the average BMI of the male and female subjects.
+
+```{r}
+ggplot(data=medicalInsurance,aes(x=bmi, y=charges, fill=sex,alpha=0.5)) +
+   ggtitle("Charges depending on BMI")+
+  geom_violin() + labs(caption = "Figure 3")
+```
+
+### Comparing the charges of the 274 smokers (20.48% of the subjects) to the rest of the non smokers in the dataset
+
+```{r}
+ggplot(data=medicalInsurance,aes(x= smoker,y=charges, fill=sex)) + 
+  geom_boxplot() + #facet_wrap(~Species)+
+  xlab("Do the subjects smoke?")+
+  ggtitle("Charges for smokers compared to non smokers") + labs(caption = "Figure 4")
+```
+
+### Summary
+* Sex of the subjects by itself doesn't play an important role in the determination of charges however it is important when analyzing other factors such as age, bmi and smoking.
+
+* The average BMI of the subjects in the database being categorized as obese influenced the total medical insurance charged to them as it was higher especially when age was also considered as a factor
+
+* The variable children doesn't affect this data set however other calculations can be done with the variable children if I had more data as the number of children and the amount charged doesn't co-relate the way I hypothesized and hence this could be a future analysis that can be conducted. 
+
+* Using plots was a great way to visualize the data set however some of them were too similar to read/compare hence using hypothesis testing such as t-tests and anova gave me a better statistical reading.
+
+* Breaking down region determined which region is charged the most and how sex effects those charges however over all the average charges were not significantly different but could be explored further with more data findings.  
+
+
