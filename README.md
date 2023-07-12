@@ -1,6 +1,7 @@
 # Predicting-Medical-Insurance-Costs
 I chose to analyze the “Medical Cost Personal Datasets” which forecasts the insurance charged depending on
 factors such as age, sex, BMI, children, smoking, and region. 
+
 <img src="InsuranceDashboard.png">
 
 I began cleaning the data by first summarizing the data to determine the data types of the variables and I changed a couple of variables to a factor data type (factor
