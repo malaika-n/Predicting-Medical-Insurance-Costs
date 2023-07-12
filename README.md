@@ -1,6 +1,7 @@
 # Predicting-Medical-Insurance-Costs
 I chose to analyze the “Medical Cost Personal Datasets” which forecasts the insurance charged depending on
 factors such as age, sex, BMI, children, smoking, and region. 
+
 <img src="InsuranceDashboard.png">
 
 I began cleaning the data by first summarizing the data to determine the data types of the variables and I changed a couple of variables to a factor data type (factor
@@ -20,7 +21,7 @@ who are not. </li>
 </li> I couldn’t determine much from the plot of charges (Figure 10) depending on the region from where the subjects were from. Hence I used statistical tests to determine if there are any statistical differences between the means of three or more groups (ANOVA and Tukey HSD test). I concluded that the charges do not vary significantly over the regional distribution. Southeast is charged the highest.</li>
 </ul>
 
-<img src="figure8_9.png">
+<img src="figures 8_9.png">
 
 <ul>
    <li> I chose to exclude the children variable as it did not affect the medical insurance charges. It did raise questions such as why are the charges low for 5 children but high for 3 since practically speaking a household with 5 kids should be charged more. Hence this variable- “children” doesn't affect this data set as the number of children and the amount charged doesn't co-relate the way I hypothesized and hence this could be a future analysis that can be conducted.</li>
