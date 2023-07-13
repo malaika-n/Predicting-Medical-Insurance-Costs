@@ -1,4 +1,4 @@
-# Predicting-Medical-Insurance-Costs
+# Predicting Medical Insurance Costs
 I chose to analyze the “Medical Cost Personal Datasets” which forecasts the insurance charged depending on
 factors such as age, sex, BMI, children, smoking, and region. 
 
